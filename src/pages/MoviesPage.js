@@ -1,7 +1,9 @@
+import { PageTitle } from 'components/PageTitle/PageTitle';
+
 export default function MoviesPage() {
   return (
     <div>
-      <h2>Movies</h2>
+      <PageTitle title="Movies" />
     </div>
   );
 }
