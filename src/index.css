@@ -1,4 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css?Cinzel:400,700,900');
+
 
 body {
   margin: 0;

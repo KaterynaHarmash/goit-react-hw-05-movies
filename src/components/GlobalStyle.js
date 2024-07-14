@@ -1,14 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  
   * {
     margin: 0;
     padding: 0;
   }
   body {
     background-color: #222;
-    padding-top: 30px;
-    padding-bottom: 30px;
   }
   ul {
     list-style-type: none;
