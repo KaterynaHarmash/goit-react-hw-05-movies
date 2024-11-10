@@ -13,4 +13,5 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   gap: 3rem;
+  z-index: 999;
 `;

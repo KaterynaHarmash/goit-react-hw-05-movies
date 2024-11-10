@@ -1,10 +1,15 @@
 import { getMovie } from 'API';
+import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import { BackLink } from 'components/BackLink/BackLink';
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const params = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+
   useEffect(() => {
     async function fetchMovie() {
       try {
@@ -17,28 +22,9 @@ export default function MovieDetailsPage() {
   console.log(movie);
 
   return (
-    <div>
-      {movie && (
-        <div>
-          <h2>{movie.original_title}</h2>
-          <img
-            src={
-              'https://media.themoviedb.org/t/p/w300_and_h450_bestv2' +
-              movie.poster_path
-            }
-            alt={movie.original_title}
-          />
-          <ul>
-            <li>
-              <NavLink to="cast">Cast</NavLink>
-            </li>
-            <li>
-              <NavLink to="reviews">Reviews</NavLink>
-            </li>
-          </ul>
-          <Outlet />
-        </div>
-      )}
-    </div>
+    <main>
+      <BackLink to={backLinkHref}>Back to movies</BackLink>
+      <MovieDetails movie={movie} />
+    </main>
   );
 }

@@ -26,3 +26,15 @@ export const getMovie = async id => {
   );
   return responce;
 };
+export const getCast = async id => {
+  const responce = axios.get(`/movie/${id}/credits`, {
+    headers: headers,
+  });
+  return responce;
+};
+export const getReviews = async id => {
+  const responce = axios.get(`/movie/${id}/reviews`, {
+    headers: headers,
+  });
+  return responce;
+};

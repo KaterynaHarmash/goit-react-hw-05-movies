@@ -17,6 +17,8 @@ export const StyledPageTitle = styled.h2`
   text-align: left;
   white-space: nowrap;
   padding-bottom: 13px;
+  z-index: 1;
+  max-width: fit-content;
   &:before {
     background-color: #e74c3c;
     content: '';

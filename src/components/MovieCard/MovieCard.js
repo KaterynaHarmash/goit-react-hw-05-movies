@@ -1,24 +1,46 @@
-export const MovieCard = ({ id, posterUrl, title, yearRelease, voiteAvg }) => {
+import { Link } from 'react-router-dom';
+import {
+  MovieCardContent,
+  MovieCardDetailes,
+  MovieCardDetailesText,
+  MovieCardDetailesTitle,
+  MovieCardHeader,
+  MovieCardInfo,
+  MovieCardItem,
+  MovieCardTitle,
+} from './MovieCard.styled';
+
+export const MovieCard = ({
+  id,
+  poster_path,
+  title,
+  release_date,
+  vote_average,
+}) => {
+  const posterLink =
+    'https://media.themoviedb.org/t/p/w300_and_h450_bestv2' + poster_path;
   return (
-    <li class="movie-card" key={id}>
-      <div class="movie-header manOfSteel"></div>
-      <div class="movie-content">
-        <div class="movie-content-header">
-          <a href="#">
-            <h3 class="movie-title">{title}</h3>
-          </a>
-        </div>
-        <div class="movie-info">
-          <div class="info-section">
-            <label>Realese Year</label>
-            <span>{yearRelease}</span>
-          </div>
-          <div class="info-section">
-            <label>Rating</label>
-            <span>{voiteAvg}</span>
-          </div>
-        </div>
-      </div>
-    </li>
+    <MovieCardItem key={id}>
+      <MovieCardHeader>
+        <img src={posterLink} alt={title} />
+      </MovieCardHeader>
+      <MovieCardContent>
+        <MovieCardInfo>
+          <Link to={`/movies/${id}`}>
+            <MovieCardTitle>{title}</MovieCardTitle>
+          </Link>
+        </MovieCardInfo>
+        <MovieCardInfo style={{ marginTop: '1em' }}>
+          <MovieCardDetailes>
+            <MovieCardDetailesTitle>Realese Date</MovieCardDetailesTitle>
+            <MovieCardDetailesText>{release_date}</MovieCardDetailesText>
+          </MovieCardDetailes>
+          <MovieCardDetailes>
+            <MovieCardDetailesTitle>Rating</MovieCardDetailesTitle>
+            <MovieCardDetailesText>{vote_average}</MovieCardDetailesText>
+          </MovieCardDetailes>
+        </MovieCardInfo>
+      </MovieCardContent>
+    </MovieCardItem>
   );
 };
