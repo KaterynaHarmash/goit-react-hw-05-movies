@@ -38,3 +38,10 @@ export const getReviews = async id => {
   });
   return responce;
 };
+export const searchMovies = async (query, page) => {
+  console.log(query, page);
+  const responce = axios.get(`/search/movie?query=${query}&page=${page}`, {
+    headers: headers,
+  });
+  return responce;
+};

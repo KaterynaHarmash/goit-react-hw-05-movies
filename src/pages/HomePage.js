@@ -45,6 +45,7 @@ export default function HomePage() {
               movie;
             return (
               <MovieCard
+                key={id}
                 id={id}
                 release_date={release_date}
                 poster_path={poster_path}

@@ -9,6 +9,7 @@ import {
   MovieCardItem,
   MovieCardTitle,
 } from './MovieCard.styled';
+import { useLocation } from 'react-router-dom';
 
 export const MovieCard = ({
   id,
@@ -17,6 +18,7 @@ export const MovieCard = ({
   release_date,
   vote_average,
 }) => {
+  const location = useLocation();
   const posterLink =
     'https://media.themoviedb.org/t/p/w300_and_h450_bestv2' + poster_path;
   return (
@@ -26,7 +28,7 @@ export const MovieCard = ({
       </MovieCardHeader>
       <MovieCardContent>
         <MovieCardInfo>
-          <Link to={`/movies/${id}`}>
+          <Link to={`/movies/${id}`} state={{ from: location }}>
             <MovieCardTitle>{title}</MovieCardTitle>
           </Link>
         </MovieCardInfo>
